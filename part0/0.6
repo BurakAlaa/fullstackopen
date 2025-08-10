@@ -1,0 +1,15 @@
+sequenceDiagram
+  participant browser
+  participant server
+  participant database
+
+  browser-->server POST /new_note_spa
+  server-->>browser 201 Created
+
+  server-->>database insert new note
+  database-->>server new note created
+
+  browser-->>browser update DOM to display new note
+
+
+# No get requests happen.
